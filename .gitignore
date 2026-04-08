@@ -1,0 +1,67 @@
+# -----------------------------
+# JUCE Build folders
+# -----------------------------
+Builds/
+Build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# -----------------------------
+# Object files & binaries
+# -----------------------------
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.exe
+*.lib
+*.a
+*.lo
+
+# -----------------------------
+# JUCE Projucer/IDE files
+# -----------------------------
+# Keep .jucer (project file), ignore temp files
+*.jucer/*.jucer*
+*.jucer/*.jucer~   # backup files
+
+# -----------------------------
+# Visual Studio files
+# -----------------------------
+*.sln
+*.vcxproj.user
+*.vcxproj.filters
+*.opensdf
+*.sdf
+*.ipch
+*.iobj
+*.idb
+*.pdb
+*.ipdb
+*.user
+*.suo
+*.ncb
+
+# -----------------------------
+# Xcode files
+# -----------------------------
+*.xcworkspace/
+*.xcuserdata/
+*.xcuserstate
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/xcshareddata/WorkspaceSettings.xcsettings
+
+# -----------------------------
+# Editor / temp files
+# -----------------------------
+*.swp
+*.tmp
+*.log
+*.DS_Store
+*.idea/
+*.vscode/
