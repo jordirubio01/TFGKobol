@@ -14,7 +14,7 @@ Synth::Synth(){ // Constructor
 
 void Synth::allocateResources(double sampleRate_, int /*samplesPerBlock*/){
     sampleRate=static_cast<float>(sampleRate_);
-    
+    voice.prepare(sampleRate_);
 }
 
 void Synth::deallocateResources(){
@@ -39,6 +39,16 @@ void Synth::noteOn(int note, int velocity){ // Quan arriba un missatge MIDI NOTE
     voice.osc.amplitude=(velocity/127.0f)*0.5f; // Amplitud segons la velocitat MIDI (0-127), màxim 50%
     voice.osc.inc=freq/sampleRate; // Increment de fase segons la freqüència
     voice.osc.reset(); // Reinicia la fase per començar la nota de zero
+
+    // Actualitza paràmetres i aplica l'envolvent
+    juce::ADSR::Parameters p;
+    p.attack  = attackTime;
+    p.decay   = decayTime;
+    p.sustain = sustainLevel;
+    p.release = 0.05f; // release curt per defecte
+    voice.adsrParams = p;
+    voice.adsr.setParameters(p);
+    voice.adsr.noteOn();
 }
 
 
@@ -46,7 +56,8 @@ void Synth::noteOn(int note, int velocity){ // Quan arriba un missatge MIDI NOTE
 //NoteOFF:
 void Synth::noteOff(int note){ // Quan arriba un missatge MIDI NOTE OFF
     if(voice.note==note){ // Si la nota que s'apaga és la mateixa que està sonant...
-        voice.note=0; // Desactiva la veu
+        //voice.note=0; // Desactiva la veu
+        voice.adsr.noteOff(); // Aplica release en comptes de tall abrupte
     }
 }
 
@@ -94,10 +105,13 @@ void Synth::render(float** outputBuffers, int sampleCount){ // Genera sampleCoun
         
         voice.waveForm=waveForm; //WF
         
-        if(voice.note>0){ // Si hi ha una nota activa...
+        if(voice.note>0 || voice.adsr.isActive()){ // Si hi ha una nota activa...
             output=voice.render(); // Genera la mostra d'àudio
         }
-        
+        // Si l'envolvent ha acabat, silenciem la veu
+        if (!voice.adsr.isActive()) {
+            voice.note = 0;
+        }
         
         float outputLevel = outputLevelSmoother.getNextValue(); // Nivell de sortida suavitzat
         output *= outputLevel; // Aplica el volum suavitzat a la mostra

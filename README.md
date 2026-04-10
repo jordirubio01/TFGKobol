@@ -8,6 +8,7 @@ El codi inicial ha estat pres del repositori https://github.com/Hardkoala/KobolV
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13862935.svg)](https://doi.org/10.5281/zenodo.13862935)
 
+```bibtex
 @misc{malpica2024kobolvco,
   author       = {Valentín Malpica Gómez},
   title        = {Virtualization of the Behringer Kobol Synthesizer VCO},
@@ -16,6 +17,7 @@ El codi inicial ha estat pres del repositori https://github.com/Hardkoala/KobolV
   doi          = {10.5281/zenodo.13862935},
   url          = {https://doi.org/10.5281/zenodo.13862935}
 }
+```
 
 ## Per ara, el repositori conté:
 

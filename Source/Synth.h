@@ -21,6 +21,18 @@ public:
 
     juce::LinearSmoothedValue<float> outputLevelSmoother; // Suavitza canvis de nivell (evita clics)
     float waveForm; // Tipus de forma d'ona
+
+    float attackTime  { 0.01f };
+    float decayTime   { 0.1f  };
+    float sustainLevel{ 1.0f  };
+
+    // Funcions de conversió de voltatge a valor (preses del VCA)
+    static float attackCurve(float v)  { return 0.000259f * std::exp(1.089287f * v); } // Exponencial
+    static float decayCurve(float v)   { return 0.002562f * std::exp(0.750869f * v); } // Exponencial
+    static float sustainCurve(float v) {                                               // Polinòmica
+        float y = -0.239039f + 0.123904f * v;
+        return juce::jlimit(0.0f, 1.0f, y);
+    }
     
     Synth(); // Constructor
     

@@ -8,11 +8,14 @@
 
 namespace BinaryData
 {
+    extern const char*   DissenyGUI_png;
+    const int            DissenyGUI_pngSize = 51679;
+
     extern const char*   WAVEFORM_v01_2_png;
     const int            WAVEFORM_v01_2_pngSize = 31822;
 
     extern const char*   magic_xml;
-    const int            magic_xmlSize = 2045;
+    const int            magic_xmlSize = 3099;
 
     extern const char*   piano_7922564_png;
     const int            piano_7922564_pngSize = 20867;
@@ -21,7 +24,7 @@ namespace BinaryData
     const int            LatoMedium_ttfSize = 663564;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 4;
+    const int namedResourceListSize = 5;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

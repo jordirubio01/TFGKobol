@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="l8C9KN" name="KobolVCO" projectType="audioplug" useAppConfig="0"
+<JUCERPROJECT id="l8C9KN" name="KobolVCOVCA" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="0" jucerFormatVersion="1"
-              companyName="valen" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              companyName="UPF" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               pluginCode="Kvco" pluginManufacturerCode="Vale" pluginAUExportPrefix="KobolvcoAU">
-  <MAINGROUP id="PJ9y8P" name="KobolVCO">
+  <MAINGROUP id="PJ9y8P" name="KobolVCOVCA">
     <GROUP id="{FDDF65C9-4E3B-23A1-6F57-4A95A1F0DCE5}" name="Resources">
+      <FILE id="ntQ5LX" name="DissenyGUI.png" compile="0" resource="1" file="Resources/DissenyGUI.png"/>
       <FILE id="zf7iJZ" name="WAVEFORM_v01_2.png" compile="0" resource="1"
             file="Resources/WAVEFORM_v01_2.png"/>
       <FILE id="Ml6xPs" name="magic.xml" compile="0" resource="1" file="Resources/magic.xml"/>

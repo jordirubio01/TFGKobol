@@ -30,6 +30,9 @@ apvts (*this, nullptr, "PARAMETERS", createParameterLayout())
 
     castParameter(apvts, ParameterID::outputLevel, outputLevelParam); // Enllaça outputLevel amb outputLevelParam
     castParameter(apvts, ParameterID::waveF, waveFParam); // Enllaça waveF amb waveFParam
+    castParameter(apvts, ParameterID::attackParam,  attackParam);
+    castParameter(apvts, ParameterID::decayParam,   decayParam);
+    castParameter(apvts, ParameterID::sustainParam, sustainParam);
     
     apvts.state.addListener(this);
     
@@ -202,6 +205,10 @@ void KobolVCOAudioProcessor::update(){
     synth.waveForm=waveF; // Assigna la forma d'ona
     
     synth.outputLevelSmoother.setTargetValue(juce::Decibels::decibelsToGain(outputLevelParam->get())); // Nivell de sortida
+    
+    synth.attackTime   = Synth::attackCurve(attackParam->get());
+    synth.decayTime    = Synth::decayCurve(decayParam->get());
+    synth.sustainLevel = Synth::sustainCurve(sustainParam->get());
 }
 
 
@@ -227,6 +234,22 @@ juce::AudioProcessorValueTreeState::ParameterLayout KobolVCOAudioProcessor::crea
             juce::NormalisableRange<float>(0.0f, 1.1f, 0.02f), //
             0.0f,
             juce::AudioParameterFloatAttributes().withLabel("VCO")));
+
+    // Sliders d'attack, sustain i decay
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+            ParameterID::attackParam, "Attack",
+            juce::NormalisableRange<float>(0.0f, 10.0f, 0.01f), 0.0f,
+            juce::AudioParameterFloatAttributes().withLabel("V")));
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+            ParameterID::decayParam, "Decay",
+            juce::NormalisableRange<float>(0.0f, 10.0f, 0.01f), 0.0f,
+            juce::AudioParameterFloatAttributes().withLabel("V")));
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+            ParameterID::sustainParam, "Sustain",
+            juce::NormalisableRange<float>(0.0f, 10.0f, 0.01f), 5.0f,
+            juce::AudioParameterFloatAttributes().withLabel("V")));
 
     return layout;
 

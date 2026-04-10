@@ -29,6 +29,9 @@ namespace ParameterID // IDs dels paràmetres del plugin
 
     PARAMETER_ID(waveF) // ID de la waveform
 
+    PARAMETER_ID(attackParam)
+    PARAMETER_ID(decayParam)
+    PARAMETER_ID(sustainParam)
 
     #undef PARAMETER_ID
 }
@@ -103,7 +106,10 @@ private:
     
 
     juce::AudioParameterFloat* outputLevelParam; // Punter al paràmetre nivell de sortida
-    juce::AudioParameterFloat* waveFParam; // Punter al paràmetre waveform
+    juce::AudioParameterFloat* waveFParam;       // Punter al paràmetre waveform
+    juce::AudioParameterFloat* attackParam;      // Punter al paràmetre d'attack
+    juce::AudioParameterFloat* decayParam;       // Punter al paràmetre de decay
+    juce::AudioParameterFloat* sustainParam;     // Punter al paràmetre de sustain
 
 
 
