@@ -45,7 +45,7 @@ void Synth::noteOn(int note, int velocity){ // Quan arriba un missatge MIDI NOTE
     p.attack  = attackTime;
     p.decay   = decayTime;
     p.sustain = sustainLevel;
-    p.release = 0.05f; // release curt per defecte
+    p.release = decayTime; // release depèn del decay
     voice.adsrParams = p;
     voice.adsr.setParameters(p);
     voice.adsr.noteOn();

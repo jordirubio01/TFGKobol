@@ -32,6 +32,7 @@ namespace ParameterID // IDs dels paràmetres del plugin
     PARAMETER_ID(attackParam)
     PARAMETER_ID(decayParam)
     PARAMETER_ID(sustainParam)
+    PARAMETER_ID(decayOff)
 
     #undef PARAMETER_ID
 }
@@ -67,7 +68,7 @@ public:
     void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&) override; // Funció principal processament àudio i MIDI
     
     //APVTS
-    juce::AudioProcessorValueTreeState apvts{*this, nullptr, "Parameters", createParameterLayout()};
+    juce::AudioProcessorValueTreeState apvts;
 
     
     //==============================================================================
@@ -110,6 +111,7 @@ private:
     juce::AudioParameterFloat* attackParam;      // Punter al paràmetre d'attack
     juce::AudioParameterFloat* decayParam;       // Punter al paràmetre de decay
     juce::AudioParameterFloat* sustainParam;     // Punter al paràmetre de sustain
+    juce::AudioParameterFloat* decayOffParam;     // Punter al paràmetre decay off
 
 
 

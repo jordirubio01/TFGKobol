@@ -33,6 +33,7 @@ apvts (*this, nullptr, "PARAMETERS", createParameterLayout())
     castParameter(apvts, ParameterID::attackParam,  attackParam);
     castParameter(apvts, ParameterID::decayParam,   decayParam);
     castParameter(apvts, ParameterID::sustainParam, sustainParam);
+    castParameter(apvts, ParameterID::decayOff, decayOffParam);
     
     apvts.state.addListener(this);
     
@@ -207,7 +208,9 @@ void KobolVCOAudioProcessor::update(){
     synth.outputLevelSmoother.setTargetValue(juce::Decibels::decibelsToGain(outputLevelParam->get())); // Nivell de sortida
     
     synth.attackTime   = Synth::attackCurve(attackParam->get());
-    synth.decayTime    = Synth::decayCurve(decayParam->get());
+    bool decayOff = decayOffParam->get() > 0.5f;
+    if (decayOff) synth.decayTime = 0.05f;
+    else synth.decayTime = Synth::decayCurve(decayParam->get());
     synth.sustainLevel = Synth::sustainCurve(sustainParam->get());
 }
 
@@ -250,6 +253,10 @@ juce::AudioProcessorValueTreeState::ParameterLayout KobolVCOAudioProcessor::crea
             ParameterID::sustainParam, "Sustain",
             juce::NormalisableRange<float>(0.0f, 10.0f, 0.01f), 5.0f,
             juce::AudioParameterFloatAttributes().withLabel("V")));
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+            ParameterID::decayOff, "Decay Off",
+            juce::NormalisableRange<float>(0.0f, 1.0f, 1.0f), 0.0f));
 
     return layout;
 
