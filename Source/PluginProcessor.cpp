@@ -35,6 +35,7 @@ apvts (*this, nullptr, "PARAMETERS", createParameterLayout())
     castParameter(apvts, ParameterID::sustainParam, sustainParam);
     castParameter(apvts, ParameterID::decayOff, decayOffParam);
 
+    castParameter(apvts, ParameterID::vcfInputLevel, vcfInputLevelParam);
     castParameter(apvts, ParameterID::cutoffParam, cutoffParam);
     castParameter(apvts, ParameterID::resonanceParam, resonanceParam);
     
@@ -215,6 +216,7 @@ void KobolVCOAudioProcessor::update(){
     else synth.decayTime = Synth::decayCurve(decayParam->get());
     synth.sustainLevel = Synth::sustainCurve(sustainParam->get());
 
+    synth.vcfInputLevel = vcfInputLevelParam->get() / 5.0f;
     synth.filterCutoff    = Synth::cutoffCurve(cutoffParam->get());
     synth.filterResonance = resonanceParam->get();
 }
@@ -264,14 +266,19 @@ juce::AudioProcessorValueTreeState::ParameterLayout KobolVCOAudioProcessor::crea
             juce::NormalisableRange<float>(0.0f, 1.0f, 1.0f), 0.0f));
 
     layout.add(std::make_unique<juce::AudioParameterFloat>(
-        ParameterID::cutoffParam, "VCF Cutoff",
-        juce::NormalisableRange<float>(0.0f, 10.0f, 0.01f), 7.0f,
-        juce::AudioParameterFloatAttributes().withLabel("V")));
+            ParameterID::vcfInputLevel, "VCF Input Level",
+            juce::NormalisableRange<float>(0.0f, 10.0f, 0.01f), 5.0f,
+            juce::AudioParameterFloatAttributes().withLabel("V")));
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+            ParameterID::cutoffParam, "VCF Cutoff",
+            juce::NormalisableRange<float>(0.0f, 10.0f, 0.01f), 7.0f,
+            juce::AudioParameterFloatAttributes().withLabel("V")));
  
     layout.add(std::make_unique<juce::AudioParameterFloat>(
-        ParameterID::resonanceParam, "VCF Resonance",
-        juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f,
-        juce::AudioParameterFloatAttributes().withLabel("")));
+            ParameterID::resonanceParam, "VCF Resonance",
+            juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f,
+            juce::AudioParameterFloatAttributes().withLabel("")));
 
     return layout;
 

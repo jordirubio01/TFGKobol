@@ -34,6 +34,7 @@ namespace ParameterID // IDs dels paràmetres del plugin
     PARAMETER_ID(sustainParam)
     PARAMETER_ID(decayOff)
 
+    PARAMETER_ID(vcfInputLevel)
     PARAMETER_ID(cutoffParam)
     PARAMETER_ID(resonanceParam)
 
@@ -109,15 +110,16 @@ private:
     
     
 
-    juce::AudioParameterFloat* outputLevelParam; // Punter al paràmetre nivell de sortida
-    juce::AudioParameterFloat* waveFParam;       // Punter al paràmetre waveform
-    juce::AudioParameterFloat* attackParam;      // Punter al paràmetre d'attack
-    juce::AudioParameterFloat* decayParam;       // Punter al paràmetre de decay
-    juce::AudioParameterFloat* sustainParam;     // Punter al paràmetre de sustain
-    juce::AudioParameterFloat* decayOffParam;    // Punter al paràmetre decay off
+    juce::AudioParameterFloat* outputLevelParam;   // Punter al paràmetre nivell de sortida
+    juce::AudioParameterFloat* waveFParam;         // Punter al paràmetre waveform
+    juce::AudioParameterFloat* attackParam;        // Punter al paràmetre d'attack
+    juce::AudioParameterFloat* decayParam;         // Punter al paràmetre de decay
+    juce::AudioParameterFloat* sustainParam;       // Punter al paràmetre de sustain
+    juce::AudioParameterFloat* decayOffParam;      // Punter al paràmetre decay off
 
-    juce::AudioParameterFloat* cutoffParam;      // Punter al paràmetre cutoff
-    juce::AudioParameterFloat* resonanceParam;   // Punter al paràmetre resonance
+    juce::AudioParameterFloat* vcfInputLevelParam; // Punter al paràmetre nivell abans del filtre
+    juce::AudioParameterFloat* cutoffParam;        // Punter al paràmetre cutoff
+    juce::AudioParameterFloat* resonanceParam;     // Punter al paràmetre resonance
 
     // FOLEYS MAGIC GUI:
     foleys::MagicPlotSource* oscilloscope = nullptr; // Oscil·loscopi (GUI)

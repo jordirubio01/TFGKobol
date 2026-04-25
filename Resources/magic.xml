@@ -35,6 +35,10 @@
               thumb-color="FFE0E0E0" track-color="FF888888"
               max-height="120" background-color="00000000" pos-x="77" pos-y="86"
               pos-width="120" pos-height="120"/>
+      <Slider id="VCFInputLevel" parameter="vcfInputLevel" caption="INPUT" slider-type="Rotary"
+              slider-textbox="no-textbox" caption-placement="0" max-width="120"
+              max-height="120" background-color="00000000" pos-x="251" pos-y="81"
+              pos-width="120" pos-height="120"/>
       <Slider id="Cutoff" parameter="cutoffParam" caption="CUTOFF" slider-type="Rotary"
               slider-textbox="no-textbox" caption-placement="0" max-width="120"
               max-height="120" background-color="00000000" pos-x="405" pos-y="114"

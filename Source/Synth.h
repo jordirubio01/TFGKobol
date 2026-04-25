@@ -26,6 +26,7 @@ public:
     float decayTime   { 0.1f  };
     float sustainLevel{ 1.0f  };
 
+    float vcfInputLevel { 1.0f };
     float filterCutoff { 22000.0f };
     float filterResonance { 0.0f };
 

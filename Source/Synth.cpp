@@ -104,6 +104,7 @@ void Synth::render(float** outputBuffers, int sampleCount){ // Genera sampleCoun
         float output=0.0f; // Inicialització de la sortida a zero
         
         voice.waveForm=waveForm; //WF
+        voice.vcfInputLevel = vcfInputLevel;
         voice.filterCutoff=filterCutoff;
         voice.filterResonance=filterResonance;
         

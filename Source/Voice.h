@@ -21,6 +21,7 @@ struct Voice
 
     // VCF
     Filter filter;
+    float vcfInputLevel { 1.0f };
     float filterCutoff {22000.0f}; // Freqüència de tall
     float filterResonance {0.0f};  // Resonància [0, 1]
 
@@ -44,6 +45,7 @@ struct Voice
     float render(){ //Render Nextsample
         // 1. VCO
         float sample = osc.nextSample(waveForm); // Crida l'oscil·lador per generar la mostra següent
+        sample *= vcfInputLevel;
         // 2. VCF
         sample = filter.processSample(sample, filterCutoff, filterResonance);
         // 3. VCA
