@@ -35,6 +35,14 @@
               thumb-color="FFE0E0E0" track-color="FF888888"
               max-height="120" background-color="00000000" pos-x="77" pos-y="86"
               pos-width="120" pos-height="120"/>
+      <Slider id="Cutoff" parameter="cutoffParam" caption="CUTOFF" slider-type="Rotary"
+              slider-textbox="no-textbox" caption-placement="0" max-width="120"
+              max-height="120" background-color="00000000" pos-x="405" pos-y="114"
+              pos-width="120" pos-height="120"/>
+      <Slider id="Resonance" parameter="resonanceParam" caption="RESONANCE" slider-type="Rotary"
+              slider-textbox="no-textbox" caption-placement="0" max-width="120"
+              max-height="120" background-color="00000000" pos-x="518" pos-y="114"
+              pos-width="120" pos-height="120"/>
       <Slider id="Attack" parameter="attackParam" caption="ATTACK" slider-type="Rotary"
               slider-textbox="no-textbox" caption-placement="0" max-width="120"
               max-height="120" background-color="00000000" pos-x="665" pos-y="81"
@@ -45,11 +53,11 @@
               pos-width="120" pos-height="120"/>
       <Slider id="DecayOff" parameter="decayOff"
               slider-type="linear-horizontal"
-              pos-x="881" pos-y="319" pos-width="46" pos-height="36"
+              pos-x="879" pos-y="320" pos-width="46" pos-height="36"
               slider-textbox="no-textbox"
-              background-color="FF555555"
+              background-color="FF181f22"
               thumb-color="FFE0E0E0"
-              track-color="FF888888"/>
+              track-color="FF263238"/>
       <Slider id="Sustain" parameter="sustainParam" caption="SUSTAIN" slider-type="Rotary"
               slider-textbox="no-textbox" caption-placement="0" max-width="120"
               max-height="120" background-color="00000000" pos-x="897" pos-y="81"

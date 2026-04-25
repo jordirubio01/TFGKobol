@@ -97,13 +97,15 @@ void Synth::render(float** outputBuffers, int sampleCount){ // Genera sampleCoun
     float* outputBufferRight=outputBuffers[1]; // Punter al buffer del canal dret
     
     
-    //1-Loop through the sample sin the buffer one-by-one. sampleCount is number of samples to render.
+    //1-Loop through the samples in the buffer one-by-one. sampleCount is number of samples to render.
     //If there are MIDI, sampleCount will be less than num of samples in block
     for (int sample=0; sample<sampleCount; ++sample){
         
         float output=0.0f; // Inicialització de la sortida a zero
         
         voice.waveForm=waveForm; //WF
+        voice.filterCutoff=filterCutoff;
+        voice.filterResonance=filterResonance;
         
         if(voice.note>0 || voice.adsr.isActive()){ // Si hi ha una nota activa...
             output=voice.render(); // Genera la mostra d'àudio

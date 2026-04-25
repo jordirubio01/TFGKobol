@@ -34,6 +34,9 @@ apvts (*this, nullptr, "PARAMETERS", createParameterLayout())
     castParameter(apvts, ParameterID::decayParam,   decayParam);
     castParameter(apvts, ParameterID::sustainParam, sustainParam);
     castParameter(apvts, ParameterID::decayOff, decayOffParam);
+
+    castParameter(apvts, ParameterID::cutoffParam, cutoffParam);
+    castParameter(apvts, ParameterID::resonanceParam, resonanceParam);
     
     apvts.state.addListener(this);
     
@@ -206,12 +209,14 @@ void KobolVCOAudioProcessor::update(){
     synth.waveForm=waveF; // Assigna la forma d'ona
     
     synth.outputLevelSmoother.setTargetValue(juce::Decibels::decibelsToGain(outputLevelParam->get())); // Nivell de sortida
-    
     synth.attackTime   = Synth::attackCurve(attackParam->get());
     bool decayOff = decayOffParam->get() > 0.5f;
     if (decayOff) synth.decayTime = 0.05f;
     else synth.decayTime = Synth::decayCurve(decayParam->get());
     synth.sustainLevel = Synth::sustainCurve(sustainParam->get());
+
+    synth.filterCutoff    = Synth::cutoffCurve(cutoffParam->get());
+    synth.filterResonance = resonanceParam->get();
 }
 
 
@@ -257,6 +262,16 @@ juce::AudioProcessorValueTreeState::ParameterLayout KobolVCOAudioProcessor::crea
     layout.add(std::make_unique<juce::AudioParameterFloat>(
             ParameterID::decayOff, "Decay Off",
             juce::NormalisableRange<float>(0.0f, 1.0f, 1.0f), 0.0f));
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        ParameterID::cutoffParam, "VCF Cutoff",
+        juce::NormalisableRange<float>(0.0f, 10.0f, 0.01f), 7.0f,
+        juce::AudioParameterFloatAttributes().withLabel("V")));
+ 
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        ParameterID::resonanceParam, "VCF Resonance",
+        juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f,
+        juce::AudioParameterFloatAttributes().withLabel("")));
 
     return layout;
 
