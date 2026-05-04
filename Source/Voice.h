@@ -24,6 +24,7 @@ struct Voice
     float vcfInputLevel { 1.0f };
     float filterCutoff {22000.0f}; // Freqüència de tall
     float filterResonance {0.0f};  // Resonància [0, 1]
+    bool filterBypass { false };
 
     juce::ADSR adsr;
     juce::ADSR::Parameters adsrParams;
@@ -47,7 +48,7 @@ struct Voice
         float sample = osc.nextSample(waveForm); // Crida l'oscil·lador per generar la mostra següent
         sample *= vcfInputLevel;
         // 2. VCF
-        sample = filter.processSample(sample, filterCutoff, filterResonance);
+        if (!filterBypass) sample = filter.processSample(sample, filterCutoff, filterResonance);
         // 3. VCA
         return sample * adsr.getNextSample(); // Aplica l'envolvent
     }

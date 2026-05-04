@@ -81,5 +81,9 @@ float Filter::processSample(float input, float cutoffHz, float res)
 
     // Sobremostreig 2x: repetir la mostra d'entrada i processar dues vegades
     processOversampled(input);                   // passa 1 (descartada)
-    return processOversampled(input);            // passa 2 (decimada)
+    float output = processOversampled(input);    // passa 2 (decimada)
+
+    //float compensation = 1.0f + resonance * 2.0f;
+    //return output * compensation;
+    return output;
 }

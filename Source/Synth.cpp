@@ -42,6 +42,7 @@ void Synth::noteOn(int note, int velocity){ // Quan arriba un missatge MIDI NOTE
 
     // Actualitza paràmetres i aplica l'envolvent
     juce::ADSR::Parameters p;
+    voice.filterBypass = filterBypass;
     p.attack  = attackTime;
     p.decay   = decayTime;
     p.sustain = sustainLevel;

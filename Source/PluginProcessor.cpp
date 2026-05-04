@@ -38,6 +38,7 @@ apvts (*this, nullptr, "PARAMETERS", createParameterLayout())
     castParameter(apvts, ParameterID::vcfInputLevel, vcfInputLevelParam);
     castParameter(apvts, ParameterID::cutoffParam, cutoffParam);
     castParameter(apvts, ParameterID::resonanceParam, resonanceParam);
+    castParameter(apvts, ParameterID::filterBypass, filterBypassParam);
     
     apvts.state.addListener(this);
     
@@ -212,13 +213,14 @@ void KobolVCOAudioProcessor::update(){
     synth.outputLevelSmoother.setTargetValue(juce::Decibels::decibelsToGain(outputLevelParam->get())); // Nivell de sortida
     synth.attackTime   = Synth::attackCurve(attackParam->get());
     bool decayOff = decayOffParam->get() > 0.5f;
-    if (decayOff) synth.decayTime = 0.05f;
+    if (decayOff) synth.decayTime = Synth::decayCurve(0.0f);
     else synth.decayTime = Synth::decayCurve(decayParam->get());
     synth.sustainLevel = Synth::sustainCurve(sustainParam->get());
 
     synth.vcfInputLevel = vcfInputLevelParam->get() / 5.0f;
     synth.filterCutoff    = Synth::cutoffCurve(cutoffParam->get());
     synth.filterResonance = resonanceParam->get();
+    synth.filterBypass = filterBypassParam->get() > 0.5f;
 }
 
 
@@ -279,6 +281,10 @@ juce::AudioProcessorValueTreeState::ParameterLayout KobolVCOAudioProcessor::crea
             ParameterID::resonanceParam, "VCF Resonance",
             juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f,
             juce::AudioParameterFloatAttributes().withLabel("")));
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+            ParameterID::filterBypass, "Filter Bypass",
+            juce::NormalisableRange<float>(0.0f, 1.0f, 1.0f), 0.0f));
 
     return layout;
 

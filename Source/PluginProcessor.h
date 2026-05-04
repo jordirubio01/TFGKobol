@@ -37,6 +37,7 @@ namespace ParameterID // IDs dels paràmetres del plugin
     PARAMETER_ID(vcfInputLevel)
     PARAMETER_ID(cutoffParam)
     PARAMETER_ID(resonanceParam)
+    PARAMETER_ID(filterBypass)
 
     #undef PARAMETER_ID
 }
@@ -120,6 +121,7 @@ private:
     juce::AudioParameterFloat* vcfInputLevelParam; // Punter al paràmetre nivell abans del filtre
     juce::AudioParameterFloat* cutoffParam;        // Punter al paràmetre cutoff
     juce::AudioParameterFloat* resonanceParam;     // Punter al paràmetre resonance
+    juce::AudioParameterFloat* filterBypassParam;  // Punter al bypass del filtre
 
     // FOLEYS MAGIC GUI:
     foleys::MagicPlotSource* oscilloscope = nullptr; // Oscil·loscopi (GUI)

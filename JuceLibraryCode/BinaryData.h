@@ -9,13 +9,13 @@
 namespace BinaryData
 {
     extern const char*   DissenyGUI_png;
-    const int            DissenyGUI_pngSize = 51679;
+    const int            DissenyGUI_pngSize = 68413;
 
     extern const char*   WAVEFORM_v01_2_png;
     const int            WAVEFORM_v01_2_pngSize = 31822;
 
     extern const char*   magic_xml;
-    const int            magic_xmlSize = 3099;
+    const int            magic_xmlSize = 4753;
 
     extern const char*   piano_7922564_png;
     const int            piano_7922564_pngSize = 20867;

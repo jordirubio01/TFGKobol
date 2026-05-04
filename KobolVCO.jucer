@@ -15,6 +15,8 @@
       <FILE id="XRe2TD" name="Lato-Medium.ttf" compile="0" resource="1" file="Resources/Lato-Medium.ttf"/>
     </GROUP>
     <GROUP id="{F374C635-5F9B-CCFC-2E69-E1C5B97D1DEF}" name="Source">
+      <FILE id="gBTyrm" name="Filter.cpp" compile="1" resource="0" file="Source/Filter.cpp"/>
+      <FILE id="PZ6Xzv" name="Filter.h" compile="0" resource="0" file="Source/Filter.h"/>
       <FILE id="RbgNED" name="Oscillator.cpp" compile="1" resource="0" file="Source/Oscillator.cpp"/>
       <FILE id="iO05Ts" name="Oscillator.h" compile="0" resource="0" file="Source/Oscillator.h"/>
       <FILE id="aXRCuQ" name="PluginProcessor.cpp" compile="1" resource="0"

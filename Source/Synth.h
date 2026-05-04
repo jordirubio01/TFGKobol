@@ -29,6 +29,7 @@ public:
     float vcfInputLevel { 1.0f };
     float filterCutoff { 22000.0f };
     float filterResonance { 0.0f };
+    bool filterBypass { false };
 
     // Funcions de conversió de voltatge a valor (preses del VCA)
     static float attackCurve(float v)  { return 0.000259f * std::exp(1.089287f * v); } // Exponencial
