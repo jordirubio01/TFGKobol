@@ -44,13 +44,15 @@ struct Voice
     
     
     float render(){ //Render Nextsample
-        // 1. VCO
-        float sample = osc.nextSample(waveForm); // Crida l'oscil·lador per generar la mostra següent
+        // 1. VCA
+        float adsrValue = adsr.getNextSample();
+        // 2. VCO
+        float sample = osc.nextSample(waveForm) * adsrValue; // Crida l'oscil·lador per generar la mostra següent
         sample *= vcfInputLevel;
-        // 2. VCF
+        // 3. VCF (Sempre processa, independentment de l'envolvent)
         if (!filterBypass) sample = filter.processSample(sample, filterCutoff, filterResonance);
-        // 3. VCA
-        return sample * adsr.getNextSample(); // Aplica l'envolvent
+        
+        return sample; // Aplica l'envolvent
     }
     
 };

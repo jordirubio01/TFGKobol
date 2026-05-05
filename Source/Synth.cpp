@@ -109,11 +109,16 @@ void Synth::render(float** outputBuffers, int sampleCount){ // Genera sampleCoun
         voice.filterCutoff=filterCutoff;
         voice.filterResonance=filterResonance;
         
-        if(voice.note>0 || voice.adsr.isActive()){ // Si hi ha una nota activa...
+        // Self-oscillation
+        bool selfOscillation = (voice.filterResonance >= 1.0f);
+        
+
+        // Si hi ha una nota activa o tenim self-oscillation
+        if(voice.note>0 || voice.adsr.isActive() || selfOscillation){
             output=voice.render(); // Genera la mostra d'àudio
         }
-        // Si l'envolvent ha acabat, silenciem la veu
-        if (!voice.adsr.isActive()) {
+        // Si l'envolvent ha acabat i no tenim self-oscillation, silenciem la veu
+        if (!voice.adsr.isActive() && !selfOscillation) {
             voice.note = 0;
         }
         

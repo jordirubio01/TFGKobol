@@ -76,7 +76,7 @@ float Filter::processOversampled(float x)
 // Processa una mostra al sample rate original
 float Filter::processSample(float input, float cutoffHz, float res)
 {
-    resonance = std::max(0.0f, std::min(res, 1.0f));
+    resonance = std::max(0.0f, std::min(res, 1.225f));
     updateCoefficients(cutoffHz);
 
     // Sobremostreig 2x: repetir la mostra d'entrada i processar dues vegades

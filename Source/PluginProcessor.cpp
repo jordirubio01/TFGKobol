@@ -279,7 +279,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout KobolVCOAudioProcessor::crea
  
     layout.add(std::make_unique<juce::AudioParameterFloat>(
             ParameterID::resonanceParam, "VCF Resonance",
-            juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f,
+            juce::NormalisableRange<float>(0.0f, 1.225f, 0.01f), 0.0f,
             juce::AudioParameterFloatAttributes().withLabel("")));
 
     layout.add(std::make_unique<juce::AudioParameterFloat>(
