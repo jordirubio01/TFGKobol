@@ -308,7 +308,11 @@ void KobolVCOAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 void KobolVCOAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // Restore your parameters from this memory block created by the getStateInformation() call.
-        magicState.setStateInformation(data, sizeInBytes, getActiveEditor());
+    magicState.setStateInformation(data, sizeInBytes, getActiveEditor());
+
+    // If filter was left in self-oscillation, we stabilize the resonance to 0.99
+    if (resonanceParam->get() >= 1.0f)
+        resonanceParam->setValueNotifyingHost(resonanceParam->convertTo0to1(0.99f));
 }
 
 

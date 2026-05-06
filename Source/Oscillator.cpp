@@ -52,7 +52,7 @@ void Oscillator::setWaveformParameters(float value) {
         
     } else { //0.8-1.1: comparator
 
-        float currentSplitPosition = (splitPointB- value-0.5-(0.6*(value-splitPointB))) / (1.2f - splitPointB);
+        float currentSplitPosition = (splitPointB- value-0.5f-(0.6f*(value-splitPointB))) / (1.2f - splitPointB);
         rectThreshold = 1.0f;
         rectGain = 0.0f;
         compThreshold = currentSplitPosition;
@@ -76,14 +76,14 @@ float Oscillator::nextSample(float position) {
         phase -= 1.0f;
     }
     
-    float sawtoothSginal = (2.0f * phase - 1.0f);  // Sawtooth signal
+    float sawtoothSignal = (2.0f * phase - 1.0f);  // Sawtooth signal
    
     //Rectifier
-    float rectSignal = rectifier(sawtoothSginal, rectThreshold); // Apply Rectifier
+    float rectSignal = rectifier(sawtoothSignal, rectThreshold); // Apply Rectifier
     rectSignal *= rectGain;
     
     //Comparator
-    float compSignal = comparator(sawtoothSginal, compThreshold, position); // Apply Comparator
+    float compSignal = comparator(sawtoothSignal, compThreshold, position); // Apply Comparator
     compSignal *= compGain;
 
     return amplitude* (rectSignal + compSignal)/2;
