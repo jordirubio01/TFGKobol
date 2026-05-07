@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="l8C9KN" name="KobolVCOVCA" projectType="audioplug" useAppConfig="0"
+<JUCERPROJECT id="l8C9KN" name="Kobol Plugin" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="0" jucerFormatVersion="1"
               companyName="UPF" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
-              pluginCode="Kvco" pluginManufacturerCode="Vale" pluginAUExportPrefix="KobolvcoAU">
-  <MAINGROUP id="PJ9y8P" name="KobolVCOVCA">
+              pluginCode="Kupf" pluginManufacturerCode="Vale" pluginAUExportPrefix="KobolPluginAU">
+  <MAINGROUP id="PJ9y8P" name="Kobol Plugin">
     <GROUP id="{FDDF65C9-4E3B-23A1-6F57-4A95A1F0DCE5}" name="Resources">
       <FILE id="ntQ5LX" name="DissenyGUI.png" compile="0" resource="1" file="Resources/DissenyGUI.png"/>
       <FILE id="zf7iJZ" name="WAVEFORM_v01_2.png" compile="0" resource="1"
@@ -50,7 +50,7 @@
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"
-               FOLEYS_ENABLE_BINARY_DATA="1" FOLEYS_SHOW_GUI_EDITOR_PALLETTE="0"/>
+               FOLEYS_ENABLE_BINARY_DATA="1" FOLEYS_SHOW_GUI_EDITOR_PALLETTE="1"/>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" extraCompilerFlags="-Wall -Wextra"
                smallIcon="ACIzIM" bigIcon="ACIzIM">
