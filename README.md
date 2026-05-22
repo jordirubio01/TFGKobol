@@ -1,10 +1,57 @@
 # **Kobol - VST Plugin** 🎛️  
 
-## Modelatge de l'RSF Kobol
+## Modeling the RSF Kobol Expander
 
-Aquest projecte se centra en la **virtualització** de l’oscil·lador, el filtre i l’amplificador del sintetitzador **RSF Kobol**.
+This repository is part of the Bachelor's Thesis project *Digital Virtualization of VCO, VCF, and VCA Modules in the RSF Kobol Synthesizer*, carried out by Jordi Rubio Arbona and supervised by Xavier Lizarraga, at **Universitat Pompeu Fabra** in Barcelona.
 
-El codi inicial ha estat pres del repositori https://github.com/Hardkoala/KobolVCO, desenvolupat com a part d’una tesi de màster a la **Universitat Pompeu Fabra de Barcelona** per Valentín Malpica Gómez sota llicència MIT (vegeu LICENSE), i s'ampliarà amb nous components per a VCA i VCF.
+## The repository contains
+
+* 🎛️ The **VST plugin** and **standalone application** developed using the JUCE framework.
+* 📊 Python notebooks
+
+## Installation
+
+### Windows
+
+Two versions are available in the `Plugin/Windows` folder:
+
+- `Kobol Plugin.exe`
+  Standalone executable version. No installation is required — simply download and run the `.exe` file.
+
+- `Kobol Plugin.vst3`
+  VST3 plugin version for DAWs.
+
+To install the VST3 plugin:
+
+1. Download `Kobol Plugin.vst3`
+2. Copy the file to:
+
+```text
+C:\Program Files\Common Files\VST3
+```
+
+3. Restart your DAW and rescan plugins if necessary.
+
+### MacOS
+
+Two versions are available in the Plugin/OS folder:
+- `Kobol Plugin.app`
+  Standalone application version. No installation is required — simply download and run the `.exe` file.
+- `Kobol Plugin.vst3`
+  VST3 plugin version for DAWs.
+
+To install the VST3 plugin:
+
+1. Download `Kobol Plugin.vst3`
+2. Copy the file to:
+```text
+/Library/Audio/Plug-Ins/VST3
+```
+3. Restart your DAW and rescan plugins if necessary.
+
+## Acknowledgements
+
+The initial code was taken from the https://github.com/Hardkoala/KobolVCO repository, developed as part of a master's thesis at the **Universitat Pompeu Fabra** by Valentín Malpica Gómez under the MIT license (see LICENSE), has been extended with new components for VCA and VCF.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13862935.svg)](https://doi.org/10.5281/zenodo.13862935)
 
@@ -18,10 +65,6 @@ El codi inicial ha estat pres del repositori https://github.com/Hardkoala/KobolV
   url          = {https://doi.org/10.5281/zenodo.13862935}
 }
 ```
-
-## Per ara, el repositori conté:
-
-* 🎛️ **El modelatge del VCO** desenvolupat amb el framework **JUCE**.
 
 ## Contributing
 
