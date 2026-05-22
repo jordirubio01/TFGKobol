@@ -2,8 +2,9 @@
 
 <JUCERPROJECT id="l8C9KN" name="Kobol Plugin" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="0" jucerFormatVersion="1"
-              companyName="UPF" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
-              pluginCode="Kupf" pluginManufacturerCode="Vale" pluginAUExportPrefix="KobolPluginAU">
+              companyName="MTG-UPF" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              pluginCode="MTGk" pluginManufacturerCode="MTGu" pluginAUExportPrefix="KobolPluginAU"
+              companyWebsite="www.mtg.upf.edu" companyCopyright="MTG-UPF" companyEmail="mtg-info@upf.edu">
   <MAINGROUP id="PJ9y8P" name="Kobol Plugin">
     <GROUP id="{FDDF65C9-4E3B-23A1-6F57-4A95A1F0DCE5}" name="Resources">
       <FILE id="X6YxDp" name="icon.png" compile="0" resource="1" file="Resources/icon.png"/>
