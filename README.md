@@ -13,17 +13,17 @@ This repository is part of the Bachelor's Thesis project *Digital Virtualization
 
 ### Windows
 
-Two versions are available in the `Plugin/Windows` folder:
+Two versions are available in the [`Plugin/Windows`](https://github.com/jordirubio01/TFGKobol/tree/19a02396b5f43a9df74f52762f8ec90f7e39004b/Plugin/Windows) folder:
 
-- `Kobol Plugin.exe`
+- [`Kobol Plugin.exe`](https://github.com/jordirubio01/TFGKobol/blob/19a02396b5f43a9df74f52762f8ec90f7e39004b/Plugin/Windows/Standalone/Kobol%20Plugin.exe)
   Standalone executable version. No installation is required — simply download and run the `.exe` file.
 
-- `Kobol Plugin.vst3`
+- [`Kobol Plugin.vst3`](https://github.com/jordirubio01/TFGKobol/blob/19a02396b5f43a9df74f52762f8ec90f7e39004b/Plugin/Windows/VST3/Kobol%20Plugin.vst3)
   VST3 plugin version for DAWs.
 
 To install the VST3 plugin:
 
-1. Download `Kobol Plugin.vst3`
+1. Download [`Kobol Plugin.vst3`](https://github.com/jordirubio01/TFGKobol/blob/19a02396b5f43a9df74f52762f8ec90f7e39004b/Plugin/Windows/VST3/Kobol%20Plugin.vst3)
 2. Copy the file to:
 
 ```text
