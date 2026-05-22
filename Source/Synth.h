@@ -27,7 +27,7 @@ public:
     float sustainLevel{ 1.0f  };
 
     float vcfInputLevel { 1.0f };
-    float filterCutoff { 22000.0f };
+    float filterCutoff { 16000.0f };
     float filterResonance { 0.0f };
     bool filterBypass { false };
 
@@ -44,7 +44,7 @@ public:
     static float cutoffCurve(float v)
     {
         // 16 * 2^V
-        return juce::jlimit(16.0f, 20000.0f, 16.0f * std::exp2(v));
+        return juce::jlimit(16.0f, 16000.0f, 16.0f * std::exp2(v));
     }
 
     Synth(); // Constructor

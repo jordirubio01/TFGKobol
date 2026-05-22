@@ -22,7 +22,7 @@ struct Voice
     // VCF
     Filter filter;
     float vcfInputLevel { 1.0f };
-    float filterCutoff {22000.0f}; // Freqüència de tall
+    float filterCutoff {16000.0f}; // Freqüència de tall
     float filterResonance {0.0f};  // Resonància [0, 1]
     bool filterBypass { false };
 
