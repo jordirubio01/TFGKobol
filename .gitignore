@@ -17,7 +17,7 @@ cmake_install.cmake
 *.so
 *.dll
 *.dylib
-*.exe
+#*.exe
 *.lib
 *.a
 *.lo
