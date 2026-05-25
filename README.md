@@ -15,15 +15,20 @@ This repository is part of the Bachelor's Thesis project *Digital Virtualization
 
 Two versions are available in the [`Plugin/Windows`](https://github.com/jordirubio01/TFGKobol/tree/19a02396b5f43a9df74f52762f8ec90f7e39004b/Plugin/Windows) folder:
 
-- [`Kobol Plugin.exe`](https://github.com/jordirubio01/TFGKobol/blob/19a02396b5f43a9df74f52762f8ec90f7e39004b/Plugin/Windows/Standalone/Kobol%20Plugin.exe)
-  Standalone executable version. No installation is required — simply download and run the `.exe` file.
+Standalone executable version. No installation is required — simply download and run the `.exe` file.
 
-- [`Kobol Plugin.vst3`](https://github.com/jordirubio01/TFGKobol/blob/19a02396b5f43a9df74f52762f8ec90f7e39004b/Plugin/Windows/VST3/Kobol%20Plugin.vst3)
-  VST3 plugin version for DAWs.
+- [`Kobol Plugin.exe (32-bit)`](https://github.com/jordirubio01/TFGKobol/blob/9909ddac33d3888aa7381e7cb8002ebb2480c25e/Plugin/Windows/32-bits%20(x86)/Standalone/Kobol%20Plugin.exe)
+- [`Kobol Plugin.exe (64-bit)`](https://github.com/jordirubio01/TFGKobol/blob/9909ddac33d3888aa7381e7cb8002ebb2480c25e/Plugin/Windows/64-bits%20(x64)/Standalone/Kobol%20Plugin.exe)
+
+VST3 plugin version for DAWs.
+
+- [`Kobol Plugin.vst3 (32-bit)`](https://github.com/jordirubio01/TFGKobol/tree/9909ddac33d3888aa7381e7cb8002ebb2480c25e/Plugin/Windows/32-bits%20(x86)/VST3)
+- [`Kobol Plugin.vst3 (64-bit)`](https://github.com/jordirubio01/TFGKobol/tree/9909ddac33d3888aa7381e7cb8002ebb2480c25e/Plugin/Windows/64-bits%20(x64)/VST3)
+
 
 To install the VST3 plugin:
 
-1. Download [`Kobol Plugin.vst3`](https://github.com/jordirubio01/TFGKobol/blob/19a02396b5f43a9df74f52762f8ec90f7e39004b/Plugin/Windows/VST3/Kobol%20Plugin.vst3)
+1. Download [`Kobol Plugin.vst3 (32-bit)`](https://github.com/jordirubio01/TFGKobol/tree/9909ddac33d3888aa7381e7cb8002ebb2480c25e/Plugin/Windows/32-bits%20(x86)/VST3) or [`Kobol Plugin.vst3 (64-bit)`](https://github.com/jordirubio01/TFGKobol/tree/9909ddac33d3888aa7381e7cb8002ebb2480c25e/Plugin/Windows/64-bits%20(x64)/VST3) depending on the architecture of your computer. You do not know which one to choose? More information [here](https://support.microsoft.com/en-us/windows/32-bit-and-64-bit-windows-frequently-asked-questions-c6ca9541-8dce-4d48-0415-94a3faa2e13d).
 2. Copy the file to:
 
 ```text
