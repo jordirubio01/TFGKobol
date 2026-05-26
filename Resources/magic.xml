@@ -26,50 +26,50 @@
     </Style>
   </Styles>
   <View id="root" resizable="0" resize-corner="0" flex-direction="column"
-        width="1162" height="600">
+        width="1162" height="600" margin="0" padding="0" border="0">
     <View class="parameters nomargin" background-image="DissenyGUI_png"
           min-height="440" max-height="440" display="contents"
           background-color="FF000000">
       <Slider id="WaveForm" parameter="waveF" caption="WAVEFORM" slider-type="Rotary"
               caption-placement="0" max-width="120" thumb-color="FFE0E0E0"
               track-color="FF888888" max-height="120" background-color="00000000"
-              pos-x="81" pos-y="87" pos-width="115" pos-height="115" slider-textbox="caption-placement"/>
+              pos-x="83" pos-y="82" pos-width="115" pos-height="115" slider-textbox="no-textbox"/>
       <Slider id="VCFInputLevel" parameter="vcfInputLevel" caption="INPUT"
-              slider-type="Rotary" slider-textbox="caption-placement" caption-placement="0"
+              slider-type="Rotary" slider-textbox="no-textbox" caption-placement="0"
               max-width="120" max-height="120" background-color="00000000"
-              pos-x="255" pos-y="83" pos-width="115" pos-height="115"/>
+              pos-x="260" pos-y="82" pos-width="115" pos-height="115"/>
       <Slider id="Cutoff" parameter="cutoffParam" caption="CUTOFF" slider-type="Rotary"
-              slider-textbox="caption-placement" caption-placement="0" max-width="120"
-              max-height="120" background-color="00000000" pos-x="408" pos-y="117"
+              slider-textbox="no-textbox" caption-placement="0" max-width="120"
+              max-height="120" background-color="00000000" pos-x="416" pos-y="117"
               pos-width="115" pos-height="115"/>
       <Slider id="Resonance" parameter="resonanceParam" caption="RESONANCE"
-              slider-type="Rotary" slider-textbox="caption-placement" caption-placement="0"
+              slider-type="Rotary" slider-textbox="no-textbox" caption-placement="0"
               max-width="120" max-height="120" background-color="00000000"
-              pos-x="521" pos-y="117" pos-width="115" pos-height="115"/>
+              pos-x="533" pos-y="117" pos-width="115" pos-height="115"/>
       <Slider id="FilterBypass" parameter="filterBypass" slider-type="linear-horizontal"
-              pos-x="500" pos-y="320" pos-width="46" pos-height="36" slider-textbox="no-textbox"
+              pos-x="508" pos-y="324" pos-width="46" pos-height="36" slider-textbox="no-textbox"
               background-color="FF0B0E0F" thumb-color="FFE0E0E0" track-color="FF263238"/>
       <Slider id="Attack" parameter="attackParam" caption="ATTACK" slider-type="Rotary"
-              slider-textbox="caption-placement" caption-placement="0" max-width="120"
-              max-height="120" background-color="00000000" pos-x="668" pos-y="83"
+              slider-textbox="no-textbox" caption-placement="0" max-width="120"
+              max-height="120" background-color="00000000" pos-x="681" pos-y="83"
               pos-width="115" pos-height="115"/>
       <Slider id="Decay" parameter="decayParam" caption="DECAY" slider-type="Rotary"
-              slider-textbox="caption-placement" caption-placement="0" max-width="120"
-              max-height="120" background-color="00000000" pos-x="785" pos-y="83"
+              slider-textbox="no-textbox" caption-placement="0" max-width="120"
+              max-height="120" background-color="00000000" pos-x="800" pos-y="83"
               pos-width="115" pos-height="115"/>
       <Slider id="DecayOff" parameter="decayOff" slider-type="linear-horizontal"
-              pos-x="879" pos-y="320" pos-width="46" pos-height="36" slider-textbox="no-textbox"
+              pos-x="894" pos-y="324" pos-width="46" pos-height="36" slider-textbox="no-textbox"
               background-color="FF0B0E0F" thumb-color="FFE0E0E0" track-color="FF263238"/>
       <Slider id="Sustain" parameter="sustainParam" caption="SUSTAIN" slider-type="Rotary"
-              slider-textbox="caption-placement" caption-placement="0" max-width="120"
-              max-height="120" background-color="00000000" pos-x="900" pos-y="83"
+              slider-textbox="no-textbox" caption-placement="0" max-width="120"
+              max-height="120" background-color="00000000" pos-x="916" pos-y="83"
               pos-width="115" pos-height="115"/>
       <Slider id="Volume" parameter="outputLevel" caption="VOLUME" slider-type="Rotary"
-              slider-textbox="caption-placement" caption-placement="0" max-width="120"
-              max-height="120" background-color="00000000" pos-x="984" pos-y="228"
+              slider-textbox="no-textbox" caption-placement="0" max-width="120"
+              max-height="120" background-color="00000000" pos-x="1003" pos-y="229"
               pos-width="115" pos-height="115"/>
     </View>
-    <View min-height="160" max-height="160" background-color="FF000000">
+    <View min-height="160" max-height="160" background-color="FF000000" margin="0" padding="0" border="0">
       <KeyboardComponent id="keys"/>
     </View>
   </View>
