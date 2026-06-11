@@ -9,22 +9,22 @@
 #include "PluginProcessor.h"
 #include "Utils.h"
 
-namespace IDs { // IDs utilitzades per la GUI
-    static juce::Identifier oscilloscope { "oscilloscope" }; // Oscil·loscopi
-    static juce::Identifier fft { "FFT" }; // Analitzador FFT
+namespace IDs { // IDs used for the GUI
+    static juce::Identifier oscilloscope { "oscilloscope" }; // Oscilloscope
+    static juce::Identifier fft { "FFT" }; // FFT Analyzer
 }
 
 //==============================================================================
 KobolVCFAudioProcessor::KobolVCFAudioProcessor() // Constructor
     : foleys::MagicProcessor(
-          juce::AudioProcessor::BusesProperties() // Inicialització (bus de sortida estèreo, àudio)
-              .withInput ("Input",  juce::AudioChannelSet::stereo(), true)   // Entrada externa
+          juce::AudioProcessor::BusesProperties() // Initialization (stereo output bus, audio)
+              .withInput ("Input",  juce::AudioChannelSet::stereo(), true)   // External input
               .withOutput("Output", juce::AudioChannelSet::stereo(), true)),
       apvts(*this, nullptr, "PARAMETERS", createParameterLayout())
 {
     FOLEYS_SET_SOURCE_PATH(__FILE__);
 
-    castParameter(apvts, ParameterID::outputLevel, outputLevelParam); // Enllaça outputLevel amb outputLevelParam
+    castParameter(apvts, ParameterID::outputLevel, outputLevelParam); // Links outputLevel with outputLevelParam
 
     castParameter(apvts, ParameterID::vcfInputLevel, vcfInputLevelParam);
     castParameter(apvts, ParameterID::cutoffParam, cutoffParam);
@@ -34,8 +34,8 @@ KobolVCFAudioProcessor::KobolVCFAudioProcessor() // Constructor
     apvts.state.addListener(this);
 
     // MAGIC GUI: register an oscilloscope to display in the GUI. keep a pointer to push samples into in processBlock(). Only interested in channel 0
-    oscilloscope = magicState.createAndAddObject<foleys::MagicOscilloscope>(IDs::oscilloscope, 0); // Oscil·loscopi (canal esquerre)
-    analyser     = magicState.createAndAddObject<foleys::MagicAnalyser>(IDs::fft, 1); // Analitzador FFT
+    oscilloscope = magicState.createAndAddObject<foleys::MagicOscilloscope>(IDs::oscilloscope, 0); // Oscilloscope (left channel)
+    analyser     = magicState.createAndAddObject<foleys::MagicAnalyser>(IDs::fft, 1); // FFT Analyzer
 
     magicState.setGuiValueTree(BinaryData::magicFilter_xml, BinaryData::magicFilter_xmlSize); //Loads magic_XML config
 }
@@ -135,13 +135,13 @@ void KobolVCFAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce
         const float inLevel  = inputLevelSmoother.getNextValue();
         const float outLevel = outputLevelSmoother.getNextValue();
 
-        // Canal esquerre (sempre present)
+        // Left channel
         float sampleL = left[i] * inLevel;
         if (!filterBypass)
             sampleL = filterL.processSample(sampleL, filterCutoff, filterResonance);
         left[i] = sampleL * outLevel;
 
-        // Canal dret (si existeix; si no, es reutilitza el filtre esquerre)
+        // Right channel (if it exists; otherwise, the left filter is reused)
         if (right != nullptr)
         {
             float sampleR = right[i] * inLevel;
@@ -176,12 +176,12 @@ KobolVCFAudioProcessor::createParameterLayout()
 
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         ParameterID::cutoffParam, "VCF Cutoff",
-        juce::NormalisableRange<float>(0.0f, 10.0f, 0.01f), 7.0f,
+        juce::NormalisableRange<float>(0.0f, 10.0f), 7.0f,
         juce::AudioParameterFloatAttributes().withLabel("V")));
 
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         ParameterID::resonanceParam, "VCF Resonance",
-        juce::NormalisableRange<float>(0.0f, 1.225f, 0.01f), 0.0f,
+        juce::NormalisableRange<float>(0.0f, 1.225f, 0.001f), 0.0f,
         juce::AudioParameterFloatAttributes().withLabel("")));
 
     layout.add(std::make_unique<juce::AudioParameterFloat>(
