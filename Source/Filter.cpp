@@ -5,7 +5,7 @@
     Created: 25 Apr  2026 11:01:27pm
     Author:  Jordi
 
-    Implementació no lineal del filtre Moog Ladder (Huovilainen 2004).
+    Non-linear Moog Ladder Filter implementation (Huovilainen 2004).
 
   ==============================================================================
 */
@@ -31,13 +31,13 @@ void Filter::reset()
 }
 
 // --------------------------------------------------------------------------------------
-// UpdateCoeficients:
+// UpdateCoefficients:
 // --------------------------------------------------------------------------------------
-// Actualitza el coeficient g a partir de la freqüència de tall (eq. 21 del paper)
-// S'utilitza el sample rate intern (oversampled)
+// Update the coefficient g based on the cutoff frequency (eq. 21 of the paper)
+// Uses the internal sample rate (oversampled)
 void Filter::updateCoefficients(float cutoffHz)
 {
-    // Limitem la freqüència de tall a Nyquist del rate intern
+    // Limit the cutoff frequency to Nyquist of the internal rate
     const float maxCutoff = static_cast<float>(sampleRateOS) * 0.49f;
     const float fc = std::max(1.0f, std::min(cutoffHz, maxCutoff));
 
@@ -51,16 +51,16 @@ float Filter::processOversampled(float x)
 {
     const float out = y[3];
 
-    // Compensació de mitja unitat de retard en el feedback (eq. 23)
+    // Compensation for half-unit delay in the feedback (eq. 23)
     const float fb = 0.5f * (out + lastOut);
     lastOut = out;
 
-    // Etapa 1: entrada amb feedback (eq. 22)
+    // Stage 1: input with feedback (eq. 22)
     const float inp_tanh = fasttanh((x - 4.0f * resonance * fb) / (2.0f * Vt));
     y[0] += 2.0f * Vt * g * (inp_tanh - w[0]);
     w[0] = fasttanh(y[0] / (2.0f * Vt));
 
-    // Etapes 2, 3, 4 (eq. 14-16)
+    // Stages 2, 3, 4 (eq. 14-16)
     for (int k = 1; k < 4; ++k)
     {
         y[k] += g * (w[k - 1] - w[k]);
@@ -73,15 +73,15 @@ float Filter::processOversampled(float x)
 // --------------------------------------------------------------------------------------
 // ProcessSample:
 // --------------------------------------------------------------------------------------
-// Processa una mostra al sample rate original
+// Process a sample at the original sample rate
 float Filter::processSample(float input, float cutoffHz, float res)
 {
     resonance = std::max(0.0f, std::min(res, 1.225f));
     updateCoefficients(cutoffHz);
 
-    // Sobremostreig 2x: repetir la mostra d'entrada i processar dues vegades
-    processOversampled(input);                   // passa 1 (descartada)
-    float output = processOversampled(input);    // passa 2 (decimada)
+    // Oversampling 2x: repeat the input sample and process twice
+    processOversampled(input);                   // pass 1 (discarded)
+    float output = processOversampled(input);    // pass 2 (decimated)
 
     //float compensation = 1.0f + resonance * 2.0f;
     //return output * compensation;
