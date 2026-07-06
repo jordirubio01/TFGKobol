@@ -1,0 +1,60 @@
+{
+  "Name": "KobolVCO",
+  "Version": "1.0.0",
+  "Factory Info": {
+    "Vendor": "MTG-UPF",
+    "URL": "www.mtg.upf.edu",
+    "E-Mail": "mtg-info@upf.edu",
+    "Flags": {
+      "Unicode": true,
+      "Classes Discardable": false,
+      "Component Non Discardable": false,
+    },
+  },
+  "Classes": [
+    {
+      "CID": "ABCDEF019182FAEB4D5447754D54476B",
+      "Category": "Audio Module Class",
+      "Name": "Kobol Plugin",
+      "Vendor": "MTG-UPF",
+      "Version": "1.0.0",
+      "SDKVersion": "VST 3.7.12",
+      "Sub Categories": [
+        "Instrument",
+        "Synth",
+      ],
+      "Class Flags": 2,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+    {
+      "CID": "ABCDEF011234ABCD4D5447754D54476B",
+      "Category": "Component Controller Class",
+      "Name": "Kobol Plugin",
+      "Vendor": "MTG-UPF",
+      "Version": "1.0.0",
+      "SDKVersion": "VST 3.7.12",
+      "Sub Categories": [
+        "Instrument",
+        "Synth",
+      ],
+      "Class Flags": 2,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+    {
+      "CID": "ABCDEF01C0DEF00D4D5447754D54476B",
+      "Category": "Plugin Compatibility Class",
+      "Name": "Kobol Plugin",
+      "Vendor": "MTG-UPF",
+      "Version": "1.0.0",
+      "SDKVersion": "VST 3.7.12",
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+  ],
+}
