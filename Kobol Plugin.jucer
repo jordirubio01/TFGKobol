@@ -37,8 +37,6 @@
     <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
             useGlobalPath="1"/>
     <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
-            useGlobalPath="1"/>
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
@@ -74,7 +72,6 @@
         <MODULEPATH id="foleys_gui_magic" path="modules"/>
         <MODULEPATH id="juce_dsp" path="../../../JUCE/modules"/>
         <MODULEPATH id="juce_cryptography" path="../../../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors_headless" path="../../../../../Documents/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2022 targetFolder="Builds/VisualStudio2022" smallIcon="X6YxDp" bigIcon="X6YxDp">
@@ -89,7 +86,6 @@
         <MODULEPATH id="juce_audio_formats" path="../../juce"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../../juce"/>
         <MODULEPATH id="juce_audio_processors" path="../../juce"/>
-        <MODULEPATH id="juce_audio_processors_headless" path="../../juce"/>
         <MODULEPATH id="juce_audio_utils" path="../../juce"/>
         <MODULEPATH id="juce_core" path="../../juce"/>
         <MODULEPATH id="juce_cryptography" path="../../juce"/>
